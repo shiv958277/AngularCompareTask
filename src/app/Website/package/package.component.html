@@ -1,0 +1,109 @@
+ <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+       
+            
+        <form class="d-flex" style="margin-left: 750px;">
+         
+          <input class="form-control me-2"  style="width:300px;text-align: center;"type="search" name="search"autocomplete="off" [(ngModel)]="searchText"  placeholder="search package">
+         
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <h1 style="margin-top: 40px;text-align:center;background-color:aqua;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Welcome to the Tour Package Journey...</h1>
+  <div class="container text-center">
+     
+
+  </div>
+  <div class="container">
+      <div class="row">
+         
+
+          <table class="table table-stripped">
+              <thead>
+                  <tr>
+                        <th></th>
+                        <th></th>
+                      <th>Package Name</th>
+                      <th>No of Days</th>
+                      <th >Cost <i class="fa fa-sort" (click)="sortcost()"></i></th>
+                      <th>Discount</th>
+                  </tr>
+              </thead>
+              <tbody>
+
+                <tr *ngFor="let h of package | filter:searchText">
+                <td><input type="checkbox" class="form-check-input" (change)="getPackage($event,h.id)" id="savePackageName" /></td>
+                    <td><img src={{h.Image}}  width="200px" height="100px" alt="Package Image" ></td>
+                    <td>{{h.PackageName}}</td>
+                    <td>{{h.NoOfDays}}</td>
+                    <td>{{h.Cost}}</td>
+                    <td>{{h.Discount}}</td>
+                 </tr>
+              </tbody>
+          </table>
+
+
+         <button class="bg bg-primary" (click)="printPackage()">Compare</button>
+
+    
+         <div class="card">
+          <div class="container">
+          <table>
+            <tr ><b>Destination View</b>
+              <td *ngFor="let p of printingPackage">
+                <img src={{p.Image}}  width="200px" height="100px" alt="Package Image" ><br>
+              
+              </td>
+              
+
+            </tr>
+            <tr><b>Package name</b>
+              <td *ngFor="let p of printingPackage">
+              {{p.PackageName}}
+            </td>
+            </tr>
+
+            <tr ><b>No Of Days</b>
+              <td  *ngFor="let p of printingPackage">
+                {{p.NoOfDays}}
+              </td>
+              
+            </tr>
+
+            <tr ><b>Cost</b>
+              <td *ngFor="let p of printingPackage">
+                {{p.Cost}}
+              </td>
+             
+            </tr>
+
+            <tr ><b>Discount</b>
+              <td *ngFor="let p of printingPackage">
+                {{p.Discount}}
+              </td>
+              
+            </tr>
+
+          </table>
+
+        </div>
+        </div>
+
+        </div>
+
+
+      </div>
+        
+     
+        
+    
+     
+        
+  
+      
+
+      
+ 
